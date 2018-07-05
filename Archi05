@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.io.*; 
+ 
+public class Archi05 { 
+
+     
+    public static void main(String[] args) throws IOException { 
+         
+        BufferedReader tcl= new BufferedReader(new InputStreamReader(System.in)); 
+        int M[][]; 
+        int n; 
+
+        System.out.println("Ingrese la dimensión de la Matriz: "); 
+        n = Integer.parseInt(tcl.readLine()); 
+        M = new int[n][n]; 
+        llenarMatriz(M, n); 
+        imprimir(M,n); 
+
+        int sumaArriba = 0; 
+       
+
+        System.out.print("La diagonal principal es:    ["); 
+        for (int i=0; i<n; i++) 
+            for (int j=0; j<n; j++){ 
+                if (i == j) 
+                    System.out.print(M[i][j] +" "); 
+                else if (i < j) sumaArriba += M[i][j]; 
+            } 
+        System.out.println("]"); 
+
+        System.out.println("Suma por encima de la diagonal princial:  "+ sumaArriba);
+    } 
+
+    public static void llenarMatriz(int M[][], int n){ 
+         
+        for (int i=0; i<n; i++) 
+            for (int j=0; j<n; j++) 
+                M[i][j] = (int) (Math.random()*10); 
+         
+    } 
+
+    public static void imprimir(int M[][], int n){ 
+        System.out.println(); 
+        for (int i=0; i<n; i++){ 
+            for (int j=0; j<n; j++) 
+                System.out.print(M[i][j]+" "); 
+            System.out.println(); 
+        } 
+        System.out.println(); 
+    } 
+} 
